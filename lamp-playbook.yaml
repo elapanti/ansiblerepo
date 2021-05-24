@@ -3,28 +3,28 @@
   hosts : all
   become : yes
   tasks:
-    - name : install apache and update ubuntu packages
-      apt: 
-      - name : apache2
-        update : yes
+   - name : install apache and update ubuntu packages
+     apt: 
+     - name : apache2
+       update : yes
+       state : present
+   - name : install php 
+     apt :
+        name : php
+        state: present 
+   - name : install libapache2-mod-php
+     apt : 
+        name : libapache2-mod-php
         state : present
-      - name : install php 
-        apt :
-         name : php
-         state: present 
-      - name : install libapache2-mod-php
-        apt : 
-         name : libapache2-mod-php
-         state : present
-      - name : install php-mysql
-        apt: 
-         name : php-mysql
-         state : present 
-      - name : install php-cli
-        apt :
-         name: php-cli
-         state : present
-      - name : copy info.php
-        copy:
-         src: info.php
-         dest: /var/www/html/info.php
+   - name : install php-mysql
+     apt: 
+        name : php-mysql
+        state : present 
+   - name : install php-cli
+     apt :
+        name: php-cli
+        state : present
+   - name : copy info.php
+     copy:
+        src: info.php
+        dest: /var/www/html/info.php
