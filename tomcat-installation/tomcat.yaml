@@ -8,7 +8,7 @@
        name : openjdk-8-jdk
        update_cache : yes
        state : present
-    - name : install tomcat-8
+    - name : install tomcat8
       apt:
         name : tomcat8
         state : present

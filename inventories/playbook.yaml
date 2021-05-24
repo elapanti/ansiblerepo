@@ -1,0 +1,45 @@
+---
+  - name: install lamp server on ubuntu and centos
+    hosts: ubuntu
+    become: yes
+    task:
+      - name : install apache
+        package:
+            name : apache2
+            update_cache: yes
+            state : present
+  - hosts: centos
+    become : yes
+    task: 
+     - name : install httpd
+       package :
+         name : httpd
+         state: present
+     - name : enable httpd
+       service:
+         name : httpd
+         enable: yes
+         state: started
+  - hosts: all
+    become: yes
+    task :
+      - name : install php 
+        package :
+          name  : install php
+          state : present
+      - name : install libapache2-mod-php
+        package :
+          name  : install libapache2-mod-php
+          state : present
+      - name : install php-mysql
+        package : 
+          name : install php-mysql
+          state: present
+      - name : install php-cli
+        package : 
+          name: install php-cli
+          state: present
+      - name : copy info.php
+        copy :
+          src: info.php
+          des: /var/www/html/info.php
