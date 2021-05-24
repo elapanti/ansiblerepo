@@ -10,7 +10,7 @@
        state : present
     - name : install tomcat-8
       apt:
-        name : tomcat-8
+        name : tomcat8
         state : present
     - name : download url
       get_url :
