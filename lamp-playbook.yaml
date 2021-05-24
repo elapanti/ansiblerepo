@@ -5,7 +5,7 @@
   tasks:
    - name : install apache and update ubuntu packages
      apt: 
-     - name : apache2
+       name : apache2
        update : yes
        state : present
    - name : install php 
